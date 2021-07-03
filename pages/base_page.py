@@ -1,6 +1,9 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
+from .locators import MainPageLocators
+
+
 class BasePage():
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -19,4 +22,4 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.is_element_present(
-            By.CSS_SELECTOR, "#login_link"), "Login link is not presented"
+            *MainPageLocators.LOGIN_LINK), "Login link is not presented"
