@@ -24,7 +24,7 @@ venv\Scripts\activate
 #### 2) Clone the repository to your local machine:
 
 ```python
-git clone https://github.com/oldevgeny/auto_testing_project.git
+git clone https://github.com/oldevgeny/test-automation-project.git
 ```
 
 
