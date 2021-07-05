@@ -19,6 +19,10 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
+    def get_page_language(self):
+        lang = self.browser.current_url.split('/')[3]
+        return lang
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
@@ -26,7 +30,15 @@ class BasePage():
             return False
         return True
 
+    def go_to_basket_page(self):
+        assert self.is_element_present(
+            *BasePageLocators.BASKET_LINK), "Basket link is not presented"
+        link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        link.click()
+
     def go_to_login_page(self):
+        assert self.is_element_present(
+            *BasePageLocators.LOGIN_LINK), "Login link is not presented"
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
