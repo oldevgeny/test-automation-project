@@ -35,3 +35,11 @@ class ProductPage(BasePage):
     def check_message_about_adding_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is not present"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_dissapear_of_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared"
